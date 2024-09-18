@@ -2,13 +2,9 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-image: url('background.jpg');
-    /* 替换为您的图片文件名 */
     background-size: cover;
-    /* 覆盖整个页面 */
     background-position: center;
-    /* 居中显示 */
     background-repeat: no-repeat;
-    /* 不重复背景图片 */
 }
 
 
@@ -16,38 +12,46 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* 水平居中 */
     align-items: center;
-    /* 垂直居中 */
     height: 200px;
 
 }
 
 .gallery img {
     width: 100px;
-    /* 图片默认宽度 */
     height: 200px;
-    /* 保持图片比例 */
     cursor: pointer;
-    /* 鼠标悬停时显示为指针形状 */
 }
 
 #main-image {
+    position: relative;
     text-align: center;
-    /* 水平居中 */
     display: flex;
-    /* 使用弹性盒模型 */
     justify-content: center;
-    /* 水平居中 */
     align-items: center;
-    /* 垂直居中 */
     height: 400px;
-    /* 设置容器高度 */
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
 
 #main-image img {
     width: 300px;
-    /* 图片默认宽度 */
     height: 400px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s ease;
+    z-index: 2;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
