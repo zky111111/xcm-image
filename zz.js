@@ -1,12 +1,26 @@
-// 获取主图容器和所有画廊图片
 const mainImageContainer = document.getElementById('main-image');
 const galleryImages = document.querySelectorAll('.gallery img');
+const overlay = document.querySelector('.overlay');
+const toggleButton = document.getElementById('toggle-button');
 
-// 为每个画廊图片添加点击事件监听器
 galleryImages.forEach(img => {
     img.addEventListener('click', function () {
-
-        // 将当前点击的图片路径设置为主图的src属性
-        mainImageContainer.innerHTML = `<img src="${this.src}" alt="${this.alt}">`;
+        mainImageContainer.querySelector('img').src = this.src;
+        mainImageContainer.querySelector('img').alt = this.alt;
+        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';   
     });
 });
+ 
+toggleButton.addEventListener('click', () => {
+    const btnClass = toggleButton.getAttribute('class');
+    if (btnClass === 'dark') {
+        toggleButton.setAttribute('class', 'light');
+        toggleButton.textContent = 'Lighten';
+        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';  
+    } else {
+        toggleButton.setAttribute('class', 'dark');
+        toggleButton.textContent = 'Darken';
+        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';   
+    }
+});
+
